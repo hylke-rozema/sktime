@@ -433,6 +433,15 @@ class StatsForecastAutoETS(_GeneralisedStatsForecastAdapter):
     -----
     This implementation is a mirror of Hyndman's forecast::ets [2]_.
 
+    Examples
+    --------
+    >>> from sktime.datasets import load_airline
+    >>> from sktime.forecasting.statsforecast import StatsForecastAutoETS
+    >>> y = load_airline()
+    >>> model = StatsForecastAutoETS(season_length=12, model="ANN", damped=True)   # doctest: +SKIP 
+    >>> fitted_model = model.fit(y)  # doctest: +SKIP
+    >>> y_pred = fitted_model.predict(fh=[1,2,3])  # doctest: +SKIP
+    
     References
     ----------
     .. [1] https://nixtla.github.io/statsforecast/models.html#autoets
